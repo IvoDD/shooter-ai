@@ -5,7 +5,7 @@ class Example extends Player{
         this.t = 0;
         this.asdf = "HAHAHA";
     }
-    ai(player_pos, medkit_pos, wall_pos, ind){
+    ai(player_pos, bullets_pos, wall_pos, ind){
         //player_pos[0].x - x координата на играч с индекс 0
         //player_pos[0].y - y координата на играч с индекс 0
         //ind - индекса на играча който контролираме
@@ -14,6 +14,13 @@ class Example extends Player{
         //wall_pos - позиции на стени (позициите включват sx и sy - размер по x и y)
         //console.log(this.t);
         this.t++;
+        //wall_pos[0].x
+        //wall_pos[0].y
+        //bullets_pos[0].x
+        //bullets_pos[0].y
+        //bullets_pos[0].dx - скорост по x (на 0-левия патрон)
+        //bullets_pos[0].dy - скорост по y (на 0-левия патрон)
+        //bullets_pos[0].shooter - индекс на човека изстрелял патрона (на 0-левия патрон)
         if (this.t % 100 < 50){//t 0-49, 100-149, 200-249
             this.move(400, 300);
         }else{

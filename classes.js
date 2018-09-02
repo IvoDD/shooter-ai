@@ -103,13 +103,13 @@ class Player {
         this.bullets[ind] = this.bullets[this.bullets.length-1];
         this.bullets.pop();
     }
-    ai(player_pos, medkit_pos, wall_pos, ind){}
-    update(player_pos, medkit_pos, wall_pos, ind){
+    ai(player_pos, bullets_pos, wall_pos, ind){}
+    update(player_pos, bullets_pos, wall_pos, ind){
         this.ind = ind;
         this.oldx = this.x;
         this.oldy = this.y;
         try{
-            this.ai(player_pos, medkit_pos, wall_pos, ind);
+            this.ai(player_pos, bullets_pos, wall_pos, ind);
         }catch(e){
             console.log(this.name + " has crashed :(. RIP");
             this.hit(this.hp);
@@ -121,7 +121,7 @@ class Player {
                 if (this.oldx+this.sx <= w.x) {this.x = w.x-this.sx;}
                 else if (this.oldx >= w.x + w.sx) {this.x = w.x+w.sx;}
                 else if (this.oldy+this.sy <= w.y) {this.y = w.y-this.sy;}
-                else if (this.oldy >= w.y + w.sy) {this.y = w.y+w.sy;}
+                else {this.y = w.y+w.sy;}
             }
         }
         for (let i=0; i<this.bullets.length; ++i){
